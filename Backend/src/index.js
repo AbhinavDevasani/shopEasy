@@ -3,17 +3,23 @@ import cors from "cors";
 import { connectDb } from "./config/db.js";
 import "dotenv/config"
 import mongoose from "mongoose";
-
+import authRouter from "./routes/authRoute.js";
+import wishlistRouter from "./routes/wishListRoute.js";
 import productRouter from "./routes/productsRoute.js";
-
+import cartRouter from "./routes/cartRoute.js";
 import profileRouter from "./routes/profileRoute.js";
+import paymentRouter from "./routes/paymentRoute.js";
 const app = express();
 
 app.use(cors({
     origin: "*",
 }))
 app.use(express.json());
+app.use("/auth", authRouter)
 app.use("/product",productRouter)
+app.use("/wishlist",wishlistRouter)
+app.use("/cart", cartRouter)
+app.use("/payment", paymentRouter)
 app.use("/profile", profileRouter)
 
 const PORT = process.env.PORT || 3000;
