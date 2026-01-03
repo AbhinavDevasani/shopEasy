@@ -70,7 +70,7 @@ function ProductCard({ product, showRemove = false, onRemove }) {
   return (
     <Link
       to={`/product/${product._id}`}
-      className="w-[25%] h-[25%] rounded-lg z-10 shadow-2xl"
+      className="w-[24%] h-[25%] rounded-lg z-10 shadow-2xl"
     >
       <div className="relative overflow-hidden rounded-xl bg-white border border-gray-100 transition-all duration-300 hover:shadow-md">
 

@@ -74,7 +74,7 @@ export default function WishlistPage() {
 
 
   return (
-    <div className="flex flex-col gap-6 p-8 m-6">
+    <div className="flex flex-col gap-6 m-6">
         <div>
             <div>
                 <h1 className="text-4xl font-bold flex items-center gap-2">

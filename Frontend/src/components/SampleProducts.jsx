@@ -26,7 +26,7 @@ function SampleProducts({category}) {
         </div>
       )}
 
-    <div className='flex flex-wrap justify-between '>
+    <div className='flex flex-wrap justify-start gap-3'>
       
       {product.map((i) => (
         <ProductCard key={i._id} product={i} />
