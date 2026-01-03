@@ -22,7 +22,6 @@ export const authMiddleware = async(req,res,next)=>{
             username:userDetails.username, 
             email:userDetails.email
         }
-
         next();
         
     } catch (err) {

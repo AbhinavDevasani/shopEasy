@@ -4,7 +4,6 @@ import { OrderModel } from "../models/orderModel.js";
 export const getUserProfile = async (req, res) => {
   try {
     const userId = req.user?.userId;
-
     const user = await UserModel.findById(userId).select("-password");
 
     if (!user) {
@@ -23,7 +22,7 @@ export const getUserProfile = async (req, res) => {
 
 export const updateUserProfile = async (req, res) => {
   try {
-    const userId = req.user.id;
+    const userId = req.user.userId;
     const { phone, address, city, state, pincode, country } = req.body;
 
     const user = await UserModel.findByIdAndUpdate(
@@ -53,8 +52,7 @@ export const updateUserProfile = async (req, res) => {
 
 export const getUserActivities = async (req, res) => {
   try {
-    const userId = req.user.id;
-
+    const userId = req.user.userId;
     const user = await UserModel.findById(userId);
 
     if (!user) {
