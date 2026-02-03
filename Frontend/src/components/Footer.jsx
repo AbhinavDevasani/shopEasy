@@ -8,7 +8,7 @@ function Footer() {
             <div className="grid md:grid-cols-4 gap-8 mb-8">
             {/* Brand */}
             <div className="space-y-4">
-                <h3 className="text-xl font-bold">ShopEasy</h3>
+                <h3 className="text-xl font-bold">NextBuy</h3>
                 <p className="text-background/70 text-sm">
                 Your one-stop shop for premium quality products at affordable prices.
                 </p>
@@ -100,7 +100,7 @@ function Footer() {
             <div className="border-t border-background/20 pt-8 mt-8">
             {/* Bottom Footer */}
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-                <p className="text-sm text-background/70">&copy; 2025 ShopEasy. All rights reserved.</p>
+                <p className="text-sm text-background/70">&copy; 2025 NextBuy. All rights reserved.</p>
 
                 {/* Social Icons */}
                 <div className="flex items-center gap-4">

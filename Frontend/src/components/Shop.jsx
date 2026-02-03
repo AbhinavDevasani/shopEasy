@@ -54,9 +54,9 @@ export default function ShopPage() {
       filtered = filtered.filter(p => p.category === selectedCategory)
     }
 
-    const min = minPrice ? Number(minPrice) : 0
-    const max = maxPrice ? Number(maxPrice) : Infinity
-    filtered = filtered.filter(p => p.price >= min && p.price <= max)
+    const min = minPrice!== "" ? Number(minPrice) : 0
+    const max = maxPrice!=="" ? Number(maxPrice) : Infinity
+    filtered = filtered.filter(p => Number(p.price) >= min && Number(p.price) <= max)
 
     if (minRating > 0) {
       filtered = filtered.filter(p => p.rating >= minRating)

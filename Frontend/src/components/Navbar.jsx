@@ -36,11 +36,11 @@ export function Header({setOpenCart, openCart, cartCount}) {
               {/* Logo */}
               <div className="flex items-center gap-2 mr-10 shrink-0">
                 <div className="w-9 h-9 bg-black rounded-xl bg-primary/10 flex items-center justify-center">
-                  <span className="text-lg font-bold text-white">S</span>
+                  <span className="text-lg font-bold text-white">N</span>
                 </div>
                 <h1 className="text-2xl font-extrabold tracking-tight">
-                  <span className="text-primary">Shop</span>
-                  <span className="text-foreground">Easy</span>
+                  <span className="text-primary">Next</span>
+                  <span className="text-foreground">Buy</span>
                 </h1>
               </div>
 
@@ -132,7 +132,7 @@ export function Header({setOpenCart, openCart, cartCount}) {
 
           {/* Mobile Header */}
           <div className="md:hidden flex items-center justify-between h-16">
-            <h1 className="text-lg font-bold">ShopEasy</h1>
+            <h1 className="text-lg font-bold">NextBuy</h1>
 
             <div className="flex items-center gap-2">
               <button

@@ -64,7 +64,7 @@ export default function AboutPage() {
 
           <div className="relative z-10 text-center  max-w-3xl mx-auto px-4 md:px-6">
             <h1 className="text-5xl md:text-7xl font-bold text-primary mb-6 text-balance">
-              About ShopEasy
+              About NextBuy
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-15 text-balance leading-relaxed">
               Your trusted destination for premium, affordable, and quality-driven shopping.
@@ -95,13 +95,13 @@ export default function AboutPage() {
                 <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 text-balance">Our Story</h2>
 
                 <p className="text-foreground/80 text-lg leading-relaxed mb-4">
-                  ShopEasy was founded on a simple mission: to make premium shopping accessible to everyone.
+                  NextBuy was founded on a simple mission: to make premium shopping accessible to everyone.
                 </p>
                 <p className="text-foreground/80 text-lg leading-relaxed mb-4">
                   We have grown from a small startup to a trusted platform serving thousands of customers worldwide.
                 </p>
                 <p className="text-foreground/80 text-lg leading-relaxed">
-                  Today, ShopEasy continues to innovate and expand our offerings with customer needs in mind.
+                  Today, NextBuy continues to innovate and expand our offerings with customer needs in mind.
                 </p>
               </div>
             </div>
@@ -137,7 +137,7 @@ export default function AboutPage() {
         <div className="py-16 md:py-24 px-4 md:px-6 bg-background">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold text-primary text-center mb-16">
-              Why Choose ShopEasy
+              Why Choose NextBuy
             </h2>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

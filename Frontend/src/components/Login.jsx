@@ -132,7 +132,7 @@ const handleRegisterSubmit = async (e) => {
                 <span className="text-2xl font-bold text-white">S</span>
             </div>
             <div>
-                <h1 className="text-4xl font-bold text-slate-900 mb-4">ShopEasy</h1>
+                <h1 className="text-4xl font-bold text-slate-900 mb-4">NextBuy</h1>
             </div>
         </div>
         <div className="text-center mb-8 mr-6 max-w-150 hidden md:block">

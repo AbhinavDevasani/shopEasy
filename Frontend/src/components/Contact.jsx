@@ -76,7 +76,7 @@ export default function ContactPage() {
     <main className="min-h-screen">
       {/* Hero */}
       <section className="py-20 text-center bg-gray-50">
-        <h1 className="text-4xl font-bold mb-4">Get in Touch with ShopEasy</h1>
+        <h1 className="text-4xl font-bold mb-4">Get in Touch with NextBuy</h1>
         <p className="text-gray-600 max-w-2xl mx-auto">
           We’re here to help you with orders, queries, and feedback.
         </p>
@@ -188,7 +188,7 @@ export default function ContactPage() {
           className="w-full h-[400px]"
           src="https://www.google.com/maps?q=Nanakramguda&output=embed"
           loading="lazy"
-          title="ShopEasy Location"
+          title="NextBuy Location"
         />
       </section>
 
