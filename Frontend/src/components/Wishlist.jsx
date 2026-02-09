@@ -33,7 +33,7 @@ export default function WishlistPage() {
     );
   };
 
-  
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center text-gray-500">
@@ -75,28 +75,28 @@ export default function WishlistPage() {
 
   return (
     <div className="flex flex-col gap-6 m-6">
+      <div>
         <div>
-            <div>
-                <h1 className="text-4xl font-bold flex items-center gap-2">
-                    My Wishlist <span className="text-red-500">❤️</span>
-                </h1>
-                <p className="text-gray-500 mt-2">
-                    Turn your wishlist into reality — buy it today!
-                </p>
-            </div>
+          <h1 className="text-4xl font-bold flex items-center gap-2">
+            My Wishlist <span className="text-red-500">❤️</span>
+          </h1>
+          <p className="text-gray-500 mt-2">
+            Turn your wishlist into reality — buy it today!
+          </p>
         </div>
-        
-        <div className="flex gap-6 p-4 m-2 flex-wrap justify-center">
-            {wishlistItems.map(({ product }) => (
-                <ProductCard
-                key={product._id}
-                product={product}
-                showRemove
-                onRemove={removeFromWishlist}
-                />
-            ))}
-        </div>
-      
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4 m-2">
+        {wishlistItems.map(({ product }) => (
+          <ProductCard
+            key={product._id}
+            product={product}
+            showRemove
+            onRemove={removeFromWishlist}
+          />
+        ))}
+      </div>
+
     </div>
   );
 }

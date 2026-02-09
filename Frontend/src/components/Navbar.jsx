@@ -1,33 +1,62 @@
 import { useState } from "react";
-import {Heart,ShoppingCart,User,Menu,X,Search,LogOut} from "lucide-react";
+import { Heart, ShoppingCart, User, Menu, X, Search, LogOut } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 import Cookies from "js-cookie";
 import CartDrawer from "./Cart.jsx";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
-export function Header({setOpenCart, openCart, cartCount}) {
+export function Header({ setOpenCart, openCart, cartCount }) {
   const location = useLocation();
   const isCheckoutPage = location.pathname === "/checkout";
-  
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showBanner, setShowBanner] = useState(true);
   const navigate = useNavigate()
-  
+
   const navItems = ["Home", "Shop", "About Us", "Contact"];
   const login = !!Cookies.get("Jwt_token");
-  
+
 
   const handleLogout = () => {
     Cookies.remove("Jwt_token");
     navigate("/")
   };
 
-  
 
-  
+
+
 
   return (
     <>
+      {showBanner && (
+        <div className="relative flex items-center bg-black px-6 py-2.5 sm:px-3.5">
+        <div className="mx-auto flex flex-wrap items-center gap-x-4 gap-y-2">
+          <p className="text-sm leading-6 text-white">
+            <strong className="font-semibold">Super Sale 2026</strong>
+            <span className="mx-2">•</span>
+            Up to 50% off on selected items
+          </p>
+
+          <a
+            href="/shop"
+            className="flex-none rounded-full bg-white/10 px-3.5 py-1 text-sm font-semibold text-white hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            Shop Now →
+          </a>
+        </div>
+
+        <button
+          type="button"
+          className="absolute right-4 -m-3 p-3 text-white focus-visible:outline-offset-[-4px]"
+          onClick={() => setShowBanner(false)}
+        >
+          <span className="sr-only">Dismiss</span>
+          <X className="size-5" aria-hidden="true" />
+        </button>
+      </div>
+
+      )}
       <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
         <div className=" mx-10 px-4 sm:px-6 lg:px-8">
           {/* Desktop Header */}
@@ -60,8 +89,7 @@ export function Header({setOpenCart, openCart, cartCount}) {
                       key={item}
                       to={path}
                       className={({ isActive }) =>
-                        `flex items-center justify-center px-2 py-1 text-[#000000] hover:bg-[#000000] hover:text-white rounded w-[5vw] ${
-                          isActive ? "bg-[#000000] text-white" : ""
+                        `flex items-center justify-center px-2 py-1 text-[#000000] hover:bg-[#000000] hover:text-white rounded w-[5vw] ${isActive ? "bg-[#000000] text-white" : ""
                         }`
                       }
                     >
@@ -84,11 +112,11 @@ export function Header({setOpenCart, openCart, cartCount}) {
                       toast.warning("Please login to view your cart");
                       return;
                     }
-                    if(!isCheckoutPage){
+                    if (!isCheckoutPage) {
                       setOpenCart(true);
                     }
-                    
-                }}
+
+                  }}
                   className="relative p-2 rounded-full hover:bg-muted cursor-pointer"
                   aria-label="Cart"
                 >

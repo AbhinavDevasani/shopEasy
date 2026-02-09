@@ -14,7 +14,7 @@ function Home() {
   ];
 
   return (
-    <div className="bg-[#F8FAFC]">
+    <div className="bg-[#f2f0f1]">
       
       <Hero />
 

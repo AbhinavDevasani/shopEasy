@@ -11,11 +11,11 @@ function ProductCard({ product, showRemove = false, onRemove }) {
   const API_URL = import.meta.env.VITE_API_URL;
   const discountPercentage = 25;
   const discountedPrice = (
-    product.price -(product.price * discountPercentage) / 100
+    product.price - (product.price * discountPercentage) / 100
   ).toFixed(2);
 
 
-  
+
   const checkProductInCart = useCallback(async () => {
     if (!token || !product?._id) return;
 
@@ -35,7 +35,7 @@ function ProductCard({ product, showRemove = false, onRemove }) {
     checkProductInCart();
   }, [checkProductInCart]);
 
-  
+
   const handleAddToCart = async (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -70,11 +70,11 @@ function ProductCard({ product, showRemove = false, onRemove }) {
   return (
     <Link
       to={`/product/${product._id}`}
-      className="w-[24%] h-[25%] rounded-lg z-10 shadow-2xl"
+      className="block w-full rounded-lg z-10 shadow-2xl"
     >
       <div className="relative overflow-hidden rounded-xl bg-white border border-gray-100 transition-all duration-300 hover:shadow-md">
 
-        
+
         <div className="relative aspect-square bg-gray-50 overflow-hidden group">
           <img
             src={product.image}
@@ -83,7 +83,7 @@ function ProductCard({ product, showRemove = false, onRemove }) {
           />
         </div>
 
-        
+
         <div className="p-4">
           <h3 className="font-semibold text-[#1E293B] mb-2 line-clamp-2 text-sm">
             {product.title}
@@ -95,12 +95,12 @@ function ProductCard({ product, showRemove = false, onRemove }) {
 
           <div className="flex items-center justify-between gap-2">
             <div className="flex items-center gap-2">
-                <span className="text-lg font-bold text-black">
-                    ₹{discountedPrice}
-                </span>
-                <span className="text-sm text-gray-400 line-through">
-                    ₹{product.price}
-                </span>
+              <span className="text-lg font-bold text-black">
+                ₹{discountedPrice}
+              </span>
+              <span className="text-sm text-gray-400 line-through">
+                ₹{product.price}
+              </span>
             </div>
 
 
@@ -114,15 +114,15 @@ function ProductCard({ product, showRemove = false, onRemove }) {
                 {isAdded ? "Added" : loading ? "Adding..." : "Add"}
               </button>
 
-              
+
               {showRemove && (
                 <button
-                    onClick={handleRemove}
-                    className="text-xs px-3 py-1.5 rounded-md border border-red-500 text-red-600 hover:bg-red-50 transition"
+                  onClick={handleRemove}
+                  className="text-xs px-3 py-1.5 rounded-md border border-red-500 text-red-600 hover:bg-red-50 transition"
                 >
-                    Remove from Wishlist
+                  Remove from Wishlist
                 </button>
-                )}
+              )}
 
             </div>
           </div>
