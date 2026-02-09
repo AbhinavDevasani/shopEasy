@@ -1,67 +1,111 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import "./Hero.css"
 function Hero() {
   return (
     <div>
-      <div className="relative h-screen bg-linear-to-br from-muted to-background py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div className="relative min-h-screen bg-[#f2f0f1] flex items-center">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
 
-            {/* Left Content */}
-            <div className="space-y-6">
-              <div>
-                <p className="text-blue-800 font-semibold text-sm mb-2">New Collection 2025</p>
-                <h2 className="text-4xl md:text-5xl font-bold text-foreground leading-tight text-balance">
-                  Discover Premium Quality Products
-                </h2>
-                <p className="text-muted-foreground text-lg mt-4 text-balance">
-                  Shop the latest trends and timeless classics curated just for you. Premium quality, affordable prices,
-                  unbeatable service.
-                </p>
-              </div>
+            {/* LEFT CONTENT */}
+            <div className="space-y-8">
+              <p className="text-blue-800 font-semibold text-sm">
+                New Collection 2025
+              </p>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link to={"/shop"} className="bg-blue-900 text-white hover:bg-blue-800 text-primary-foreground px-8 py-6 rounded-lg font-semibold flex items-center gap-2 transition-all hover:shadow-lg">
+              <h2 className="text-4xl md:text-5xl xl:text-6xl font-extrabold text-black leading-tight">
+                Discover Premium Quality Products
+              </h2>
+
+              <p className="text-gray-600 text-lg max-w-xl">
+                Shop the latest trends and timeless classics curated just for you. Premium quality, affordable prices,
+                unbeatable service.
+              </p>
+
+              {/* CTA BUTTONS */}
+              <div className="flex gap-4">
+                <Link
+                  to="/shop"
+                  className="bg-black text-white px-8 py-4 rounded-full font-semibold flex items-center gap-2 hover:bg-neutral-800 transition"
+                >
                   Shop Now
                   <ArrowRight className="w-4 h-4" />
                 </Link>
 
-                <button className="bg-gray-200 hover:bg-gray-100 text-secondary-foreground px-8 py-6 rounded-lg font-semibold transition-all hover:shadow-lg">
+                <Link
+                  to="/shop"
+                  className="border border-black px-8 py-4 rounded-full font-semibold hover:bg-black hover:text-white transition"
+                >
                   Explore Deals
-                </button>
+                </Link>
               </div>
 
-              {/* Trust Indicators */}
-              <div className="flex gap-6 pt-4">
+              {/* STATS */}
+              <div className="grid grid-cols-3 gap-8 pt-6">
                 <div>
-                  <p className="font-semibold text-foreground">50K+</p>
-                  <p className="text-sm text-muted-foreground">Happy Customers</p>
+                  <p className="text-2xl font-bold text-black">50K+</p>
+                  <p className="text-sm text-gray-500">Happy Customers</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-foreground">Free Shipping</p>
-                  <p className="text-sm text-muted-foreground">On orders over $50</p>
+                  <p className="text-2xl font-bold text-black">Free Shipping</p>
+                  <p className="text-sm text-gray-500">On orders over $50</p>
                 </div>
                 <div>
-                  <p className="font-semibold text-foreground">30 Day</p>
-                  <p className="text-sm text-muted-foreground">Easy Returns</p>
+                  <p className="text-2xl font-bold text-black">30 Day</p>
+                  <p className="text-sm text-gray-500">Easy Returns</p>
                 </div>
               </div>
             </div>
 
-            {/* Right Image */}
-            <div className="relative h-80 md:h-96 rounded-2xl overflow-hidden bg-muted shadow-xl">
-              <img
-                src="https://res.cloudinary.com/dnx2ozxvd/image/upload/v1766051529/Screenshot_2025-12-09_182202_vglsyp.png"
-                alt="Featured products"
-                className="w-full h-full object-cover"
-              />
+            {/* RIGHT IMAGE */}
+            <div className="relative flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-md lg:max-w-lg">
+                <img
+  src="https://res.cloudinary.com/dudjdf428/image/upload/v1770615978/ChatGPT_Image_Feb_9_2026_11_14_07_AM_wcmsno.png"
+  alt="Featured products"
+  className="w-full h-[75vh] object-contain drop-shadow-2xl"
+/>
+                
+              </div>
             </div>
 
           </div>
         </div>
       </div>
+      <div class="bg-black py-12 sm:py-16">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <h2 class="text-center text-lg font-semibold text-white">
+      Trusted by the world's most innovative teams
+    </h2>
+
+    
+    <div class="relative mt-8 overflow-hidden">
+      
+      
+      <div class="pointer-events-none absolute inset-y-0 left-0 w-24 bg-linear-to-r from-black to-transparent z-10"></div>
+      <div class="pointer-events-none absolute inset-y-0 right-0 w-24 bg-linear-to-l from-black to-transparent z-10"></div>
+
+      <div class="flex w-max animate-scroll gap-16">
+       
+        <img src="https://tailwindcss.com/plus-assets/img/logos/158x48/transistor-logo-white.svg" class="h-8 opacity-70 hover:opacity-100 transition" />
+        <img src="https://tailwindcss.com/plus-assets/img/logos/158x48/reform-logo-white.svg" class="h-8 opacity-70 hover:opacity-100 transition" />
+        <img src="https://tailwindcss.com/plus-assets/img/logos/158x48/tuple-logo-white.svg" class="h-8 opacity-70 hover:opacity-100 transition" />
+        <img src="https://tailwindcss.com/plus-assets/img/logos/158x48/savvycal-logo-white.svg" class="h-8 opacity-70 hover:opacity-100 transition" />
+        <img src="https://tailwindcss.com/plus-assets/img/logos/158x48/statamic-logo-white.svg" class="h-8 opacity-70 hover:opacity-100 transition" />
+
+        
+        <img src="https://tailwindcss.com/plus-assets/img/logos/158x48/transistor-logo-white.svg" class="h-8 opacity-70 hover:opacity-100 transition" />
+        <img src="https://tailwindcss.com/plus-assets/img/logos/158x48/reform-logo-white.svg" class="h-8 opacity-70 hover:opacity-100 transition" />
+        <img src="https://tailwindcss.com/plus-assets/img/logos/158x48/tuple-logo-white.svg" class="h-8 opacity-70 hover:opacity-100 transition" />
+        <img src="https://tailwindcss.com/plus-assets/img/logos/158x48/savvycal-logo-white.svg" class="h-8 opacity-70 hover:opacity-100 transition" />
+        <img src="https://tailwindcss.com/plus-assets/img/logos/158x48/statamic-logo-white.svg" class="h-8 opacity-70 hover:opacity-100 transition" />
+      </div>
+    </div>
+  </div>
+</div>
+
     </div>
   );
 }

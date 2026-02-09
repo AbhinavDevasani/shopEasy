@@ -126,6 +126,57 @@ export default function CheckoutPage() {
     return Object.keys(newErrors).length === 0;
   };
 
+  const sendOrderConfirmationEmail = async (orderId, customer, cartItems, totalAmount) => {
+    try {
+      const emailContent = `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px;">
+          <h2 style="color: #1a202c; text-align: center;">Thank You for Your Order!</h2>
+          <p style="color: #4a5568; font-size: 16px;">Hi ${customer.fullName},</p>
+          <p style="color: #4a5568;">Your order has been successfully placed. We will notify you once it ships.</p>
+          
+          <div style="background-color: #f7fafc; padding: 15px; border-radius: 6px; margin: 20px 0;">
+            <p style="margin: 5px 0; color: #2d3748;"><strong>Order ID:</strong> ${orderId}</p>
+            <p style="margin: 5px 0; color: #2d3748;"><strong>Total Amount:</strong> ₹${totalAmount.toFixed(2)}</p>
+          </div>
+
+          <h3 style="color: #2d3748; border-bottom: 2px solid #edf2f7; padding-bottom: 10px;">Order Summary</h3>
+          <table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+            <tbody>
+              ${cartItems.map(item => `
+                <tr style="border-bottom: 1px solid #edf2f7;">
+                  <td style="padding: 10px 0; color: #4a5568;">${item.title} (x${item.quantity})</td>
+                  <td style="padding: 10px 0; text-align: right; color: #2d3748; font-weight: bold;">₹${item.price}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+
+          <p style="margin-top: 20px; color: #718096; font-size: 14px; text-align: center;">
+            Need help? Contact our support team.
+          </p>
+        </div>
+      `;
+
+      await fetch(`${API_URL}/email/send`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          to: customer.email,
+          subject: `Order Confirmation - Order #${orderId}`,
+          htmlContent: emailContent,
+        }),
+      });
+
+      console.log("Order confirmation email sent to:", customer.email);
+    } catch (error) {
+      console.error("Failed to send order confirmation email:", error);
+      // We don't block the UI if email fails, just log it
+    }
+  };
+
   const handlePlaceOrder = async () => {
     if (!validateForm()) {
       toast.error("Please fill all required details");
@@ -169,6 +220,7 @@ export default function CheckoutPage() {
       }
 
       if (paymentMethod === "cod") {
+        await sendOrderConfirmationEmail(orderData.orderId, formData, items, total);
         toast.success("Order placed successfully!");
         setTimeout(() => navigate("/profile"), 1500);
         return;
@@ -195,12 +247,15 @@ export default function CheckoutPage() {
               }),
             });
 
-            
+
 
             if (!verifyRes.ok) {
               toast.error("Payment verification failed");
               return;
             }
+
+            // Send Confirmation Email
+            await sendOrderConfirmationEmail(orderData.orderId, formData, items, total);
 
             toast.success("Payment successful! Order confirmed");
             setTimeout(() => navigate("/profile"), 1500);
@@ -282,9 +337,8 @@ export default function CheckoutPage() {
                     name={name}
                     value={formData[name]}
                     onChange={handleInputChange}
-                    className={`w-full mt-1 px-4 py-2 border rounded-lg ${
-                      errors[name] ? "border-red-500" : "border-gray-300"
-                    }`}
+                    className={`w-full mt-1 px-4 py-2 border rounded-lg ${errors[name] ? "border-red-500" : "border-gray-300"
+                      }`}
                   />
                 </div>
               ))}
