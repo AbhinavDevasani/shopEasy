@@ -218,10 +218,10 @@ export default function CartDrawer({ open, onClose }) {
                                   <div className="flex flex-1 items-end justify-between text-sm">
                                     <div className="flex items-center gap-2 text-gray-500">
                                       <p>Qty {item.quantity}</p>
-                                      <div className="flex items-center border rounded ml-2">
+                                      <div className="flex items-center border rounded ml-2 p-1">
                                         <button
                                           onClick={() => decreaseItem(item.product._id)}
-                                          className="px-2 py-0.5 hover:bg-gray-100 text-gray-600"
+                                          className="px-2 py-0.5 hover:bg-gray-100 text-gray-600 border-r-2"
                                         >
                                           -
                                         </button>

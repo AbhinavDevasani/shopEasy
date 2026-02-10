@@ -71,7 +71,7 @@ export default function AboutPage() {
             </p>
 
             {/* Replaced Button */}
-            <Link to={"/shop"} 
+            <Link to={"/shop"}
               className="bg-sky-600 cursor-pointer text-white hover:bg-accent/90 text-accent-foreground rounded-lg px-8  py-5 text-base font-semibold"
             >
               Explore Our Collections
@@ -83,7 +83,7 @@ export default function AboutPage() {
         <div className="py-16 md:py-24 px-4 md:px-6 bg-background">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
-              
+
               <div className="flex justify-center">
                 <img
                   className="w-full h-96 md:h-[400px] rounded-2xl bg-cover bg-center shadow-lg"
@@ -174,7 +174,7 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   )
 }

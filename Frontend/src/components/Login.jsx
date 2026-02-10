@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom"
 import Cookies from "js-cookie";
 import { toast } from 'react-toastify';
 import { useLocation } from 'react-router-dom';
+import { IoLogoVue } from "react-icons/io5";
 function Login() {
     const API_URL = import.meta.env.VITE_API_URL;
     const [activeTab, setActiveTab] = useState('login');
@@ -129,7 +130,7 @@ const handleRegisterSubmit = async (e) => {
     <div className="min-h-screen  bg-linear-to-br from-slate-50 to-slate-100 md:flex items-center justify-evenly p-4">
         <div className='flex justify-center items-center gap-2 mt-16 md:hidden'>
             <div className="mb-4 inline-flex items-center justify-center w-16 h-16 bg-slate-900 rounded-lg">
-                <span className="text-2xl font-bold text-white">S</span>
+                <IoLogoVue className="text-2xl font-bold text-white"/>
             </div>
             <div>
                 <h1 className="text-4xl font-bold text-slate-900 mb-4">NextBuy</h1>
@@ -137,9 +138,9 @@ const handleRegisterSubmit = async (e) => {
         </div>
         <div className="text-center mb-8 mr-6 max-w-150 hidden md:block">
           <div className="mb-8 inline-flex items-center justify-center w-16 h-16 bg-slate-900 rounded-lg">
-            <span className="text-2xl font-bold text-white">S</span>
+            <IoLogoVue className="text-2xl font-bold text-white"/>
           </div>
-          <h1 className="text-4xl font-bold text-slate-900 mb-4">ShopEasy</h1>
+          <h1 className="text-4xl font-bold text-slate-900 mb-4">NextBuy</h1>
           <p className="text-lg text-slate-600 mb-8 ">
             Your one-stop destination for everything you need. Shop with confidence, delivered fast.
           </p>
