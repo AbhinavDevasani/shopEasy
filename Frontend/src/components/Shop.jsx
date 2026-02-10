@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import ProductCard from "./ProductCard";
 import { Search, ChevronLeft, ChevronRight } from "lucide-react";
-
+import Footer from "./Footer";
 export default function ShopPage() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [products, setProducts] = useState([]);
@@ -11,7 +11,7 @@ export default function ShopPage() {
   const [sortOpen, setSortOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 9;
+  const itemsPerPage = 6;
 
   const API_URL = import.meta.env.VITE_API_URL;
   const location = useLocation();
@@ -310,6 +310,7 @@ export default function ShopPage() {
           </div>
         </section>
       </main>
+      <Footer/>
     </div>
   );
 }

@@ -2,7 +2,7 @@
 
 import { Target, Lightbulb, Zap, Award, Lock, Clock } from "lucide-react"
 import { Link } from "react-router-dom"
-
+import Footer from "./Footer"
 export default function AboutPage() {
   const missionVisionCards = [
     {
@@ -60,7 +60,7 @@ export default function AboutPage() {
             }}
           />
 
-          <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/20 to-transparent" />
+          <div className="absolute inset-0 " />
 
           <div className="relative z-10 text-center  max-w-3xl mx-auto px-4 md:px-6">
             <h1 className="text-5xl md:text-7xl font-bold text-primary mb-6 text-balance">
@@ -87,7 +87,7 @@ export default function AboutPage() {
               <div className="flex justify-center">
                 <img
                   className="w-full h-96 md:h-[400px] rounded-2xl bg-cover bg-center shadow-lg"
-                  src="https://res.cloudinary.com/dnx2ozxvd/image/upload/v1765343924/Screenshot_2025-12-10_104801_ao4wsm.png"
+                  src="https://res.cloudinary.com/dudjdf428/image/upload/v1770734567/ChatGPT_Image_Feb_10_2026_08_08_01_PM_jurpih.png"
                 />
               </div>
 
@@ -158,28 +158,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Team Section */}
-        <div className="py-16 md:py-24 px-4 md:px-6 bg-secondary">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-center mb-16">Meet Our Team</h2>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {team.map((member, index) => (
-                <div
-                  key={index}
-                  className="bg-background rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-border"
-                >
-                  <img className="h-64 w-full  bg-cover bg-center" src={member.image}/>
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-primary mb-1">{member.name}</h3>
-                    <p className="text-accent font-semibold text-sm mb-3">{member.role}</p>
-                    <p className="text-foreground/70 text-sm leading-relaxed">{member.bio}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
 
         {/* Stats Section */}
         <div className="py-16 md:py-24 px-4 md:px-6 bg-background">
@@ -194,27 +173,8 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
-
-        {/* CTA Footer */}
-        <div className="py-16 md:py-24 px-4 md:px-6 bg-gray-800 text-white">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
-              Start Shopping with Confidence
-            </h2>
-
-            <p className="text-lg text-primary-foreground/90 mb-8 leading-relaxed">
-              Join thousands of satisfied customers and experience premium shopping like never before.
-            </p>
-
-            {/* Replaced Button */}
-            <Link to={"/shop"} 
-              className="bg-white text-gray-800 cursor-pointer hover:bg-gray-300 rounded-lg px-8 py-4 text-base font-semibold"
-            >
-              Shop Now
-            </Link>
-          </div>
-        </div>
       </div>
+      <Footer/>
     </div>
   )
 }

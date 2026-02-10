@@ -193,7 +193,7 @@ export default function ContactPage() {
       </section>
 
       {/* Support Highlights */}
-      <section className="py-16 container mx-auto grid md:grid-cols-4 gap-6 text-center">
+      <section className="py-16 container mx-auto grid md:grid-cols-4 gap-6 text-center p-2">
         {[Headphones, MessageCircle, Shield, CheckCircle].map((Icon, i) => (
           <div key={i} className="border rounded-xl p-6">
             <Icon className="mx-auto h-8 w-8 mb-3" />

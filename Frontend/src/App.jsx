@@ -13,11 +13,12 @@ import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import Wishlist from './components/Wishlist.jsx';
 import Protected from './components/Protected.jsx';
-import CartDrawer from "./components/Cart.jsx"; 
+import CartDrawer from "./components/Cart.jsx";
 import Cookies from "js-cookie";
 import CheckoutPage from './components/Checkout.jsx';
 import Loader from './components/Loader.jsx';
 import Profile from './components/Profile.jsx';
+import Orders from './components/Orders.jsx';
 function App() {
   // ✅ CART STATE
   const API_URL = import.meta.env.VITE_API_URL;
@@ -45,7 +46,7 @@ function App() {
           setCartCount(totalQty);
         }
       } catch (err) {
-        console.error("Error fetching cart count",err);
+        console.error("Error fetching cart count", err);
       }
     };
 
@@ -53,7 +54,7 @@ function App() {
   }, [openCart, login]);
   return (
     <BrowserRouter>
-      <Header  setOpenCart={setOpenCart} openCart={openCart}  cartCount={cartCount} setLogin={setLogin}/>
+      <Header setOpenCart={setOpenCart} openCart={openCart} cartCount={cartCount} setLogin={setLogin} />
       <ToastContainer
         position="top-right"
         autoClose={3000}
@@ -63,18 +64,19 @@ function App() {
         draggable
       />
       <Routes>
-        
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/about-us' element={<AboutPage/>}/>
-        
-          <Route path='/wishlist' element={<Protected><Wishlist/></Protected>}/>
-          <Route path='/product/:id' element={<Protected><ProductDetail/></Protected>}/>
-          <Route path='/contact' element={<Protected><ContactPage/></Protected>}/>
-          <Route path='/shop' element={<Protected><ShopPage/></Protected>}/>
-          <Route path='/checkout' element={<Protected><CheckoutPage/></Protected>}/>
-          <Route path='/profile' element={<Protected><Profile/></Protected>}/>
-          
+
+        <Route path='/login' element={<Login />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/about-us' element={<AboutPage />} />
+
+        <Route path='/wishlist' element={<Protected><Wishlist /></Protected>} />
+        <Route path='/product/:id' element={<Protected><ProductDetail /></Protected>} />
+        <Route path='/contact' element={<Protected><ContactPage /></Protected>} />
+        <Route path='/shop' element={<Protected><ShopPage /></Protected>} />
+        <Route path='/checkout' element={<Protected><CheckoutPage /></Protected>} />
+        <Route path='/profile' element={<Protected><Profile /></Protected>} />
+        <Route path='/orders' element={<Protected><Orders /></Protected>} />
+
       </Routes>
     </BrowserRouter>
   )

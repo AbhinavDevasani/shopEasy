@@ -4,6 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import Cookies from "js-cookie";
 import CartDrawer from "./Cart.jsx";
 import { useNavigate } from "react-router-dom";
+import { IoLogoVue } from "react-icons/io5";
 import { toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
 export function Header({ setOpenCart, openCart, cartCount }) {
@@ -14,7 +15,7 @@ export function Header({ setOpenCart, openCart, cartCount }) {
   const [showBanner, setShowBanner] = useState(true);
   const navigate = useNavigate()
 
-  const navItems = ["Home", "Shop", "About Us", "Contact"];
+  const navItems = ["Home", "Shop", "Orders", "About Us", "Contact"];
   const login = !!Cookies.get("Jwt_token");
 
 
@@ -31,30 +32,30 @@ export function Header({ setOpenCart, openCart, cartCount }) {
     <>
       {showBanner && (
         <div className="relative flex items-center bg-black px-6 py-2.5 sm:px-3.5">
-        <div className="mx-auto flex flex-wrap items-center gap-x-4 gap-y-2">
-          <p className="text-sm leading-6 text-white">
-            <strong className="font-semibold">Super Sale 2026</strong>
-            <span className="mx-2">•</span>
-            Up to 50% off on selected items
-          </p>
+          <div className="mx-auto flex flex-wrap items-center gap-x-4 gap-y-2">
+            <p className="text-sm leading-6 text-white">
+              <strong className="font-semibold">Super Sale 2026</strong>
+              <span className="mx-2">•</span>
+              Up to 50% off on selected items
+            </p>
 
-          <a
-            href="/shop"
-            className="flex-none rounded-full bg-white/10 px-3.5 py-1 text-sm font-semibold text-white hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            <a
+              href="/shop"
+              className="flex-none rounded-full bg-white/10 px-3.5 py-1 text-sm font-semibold text-white hover:bg-white/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              Shop Now →
+            </a>
+          </div>
+
+          <button
+            type="button"
+            className="absolute right-4 -m-3 p-3 text-white focus-visible:outline-offset-[-4px]"
+            onClick={() => setShowBanner(false)}
           >
-            Shop Now →
-          </a>
+            <span className="sr-only">Dismiss</span>
+            <X className="size-5" aria-hidden="true" />
+          </button>
         </div>
-
-        <button
-          type="button"
-          className="absolute right-4 -m-3 p-3 text-white focus-visible:outline-offset-[-4px]"
-          onClick={() => setShowBanner(false)}
-        >
-          <span className="sr-only">Dismiss</span>
-          <X className="size-5" aria-hidden="true" />
-        </button>
-      </div>
 
       )}
       <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
@@ -64,12 +65,12 @@ export function Header({ setOpenCart, openCart, cartCount }) {
             <div className="flex w-[50%]">
               {/* Logo */}
               <div className="flex items-center gap-2 mr-10 shrink-0">
-                <div className="w-9 h-9 bg-black rounded-xl bg-primary/10 flex items-center justify-center">
-                  <span className="text-lg font-bold text-white">N</span>
+                <div className="w-9 h-9  rounded-xl bg-primary/10 flex items-center justify-center">
+                  <IoLogoVue className="text-lg font-bold text-black text-[25px]" />
                 </div>
                 <h1 className="text-2xl font-extrabold tracking-tight">
                   <span className="text-primary">Next</span>
-                  <span className="text-foreground">Buy</span>
+                  <span className="text-foreground text-[#3d2aec]">Buy</span>
                 </h1>
               </div>
 
@@ -89,7 +90,11 @@ export function Header({ setOpenCart, openCart, cartCount }) {
                       key={item}
                       to={path}
                       className={({ isActive }) =>
-                        `flex items-center justify-center px-2 py-1 text-[#000000] hover:bg-[#000000] hover:text-white rounded w-[5vw] ${isActive ? "bg-[#000000] text-white" : ""
+                        `relative flex items-center justify-center px-2 py-1 text-[#000000] w-[5vw]
+                        hover:text-black
+                        ${isActive
+                          ? "font-semibold after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[2px] after:bg-blue-500"
+                          : "after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[2px] after:bg-blue-500 hover:after:w-full after:transition-all after:duration-300"
                         }`
                       }
                     >
