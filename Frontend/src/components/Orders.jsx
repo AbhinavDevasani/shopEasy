@@ -3,7 +3,7 @@ import { ShoppingBag, Package, Truck, CheckCircle, Clock } from "lucide-react";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-
+import Footer from './Footer'
 export default function Orders() {
     const token = Cookies.get("Jwt_token");
     const API_URL = import.meta.env.VITE_API_URL;
@@ -78,6 +78,7 @@ export default function Orders() {
     }
 
     return (
+        <div>
         <div className="min-h-screen bg-gray-50 py-10 px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto">
                 <div className="mb-8">
@@ -118,9 +119,9 @@ export default function Orders() {
 
                                 {/* Order Items */}
                                 <div className="p-6">
-                                    <div className="space-y-6">
+                                    <div className="space-y-6 gap-2">
                                         {order.items.map((item) => (
-                                            <div key={item._id} className="flex gap-6 items-start">
+                                            <div key={item._id} className="flex gap-6 items-start ">
                                                 <div className="w-24 h-24 flex-shrink-0 bg-gray-100 rounded-lg overflow-hidden border border-gray-200">
                                                     {item.product?.image ? (
                                                         <img
@@ -176,6 +177,9 @@ export default function Orders() {
                     </div>
                 )}
             </div>
+            
+        </div>
+        <Footer/>
         </div>
     );
 }
