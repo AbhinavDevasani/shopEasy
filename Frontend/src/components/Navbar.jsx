@@ -163,7 +163,6 @@ export function Header({ setOpenCart, openCart, cartCount }) {
             </div>
           </div>
 
-          {/* Mobile Header */}
           <div className="md:hidden flex items-center justify-between h-16">
             <h1 className="text-lg font-bold">NextBuy</h1>
 
@@ -188,6 +187,73 @@ export function Header({ setOpenCart, openCart, cartCount }) {
               </button>
             </div>
           </div>
+          
+          {/* Mobile Menu Dropdown */}
+          {isMenuOpen && (
+            <div className="md:hidden py-4 border-t border-border">
+              <nav className="flex flex-col gap-4">
+                {navItems.map((item) => {
+                  const path =
+                    item === "Home"
+                      ? "/"
+                      : `/${item.toLowerCase().replace(/\s+/g, "-")}`;
+                  return (
+                    <NavLink
+                      key={item}
+                      to={path}
+                      onClick={() => setIsMenuOpen(false)}
+                      className={({ isActive }) =>
+                        `text-lg font-medium px-2 py-1 ${
+                          isActive ? "text-blue-600 font-bold" : "text-gray-800"
+                        }`
+                      }
+                    >
+                      {item}
+                    </NavLink>
+                  );
+                })}
+                <div className="flex items-center gap-4 px-2 pt-4 border-t border-border mt-2">
+                  <Link to={"/wishlist"} onClick={() => setIsMenuOpen(false)} className="flex items-center gap-2 p-2 rounded-full hover:bg-muted text-gray-800">
+                    <Heart className="w-5 h-5" />
+                    <span>Wishlist</span>
+                  </Link>
+                </div>
+                <div className="flex flex-col gap-2 px-2 pt-2">
+                  {login ? (
+                    <>
+                      <Link
+                        to="/profile"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="flex items-center gap-2 px-4 py-2 rounded-lg border hover:bg-muted text-sm text-gray-800"
+                      >
+                        <User className="w-4 h-4" />
+                        <span>Profile</span>
+                      </Link>
+                      <button
+                        onClick={() => {
+                          handleLogout();
+                          setIsMenuOpen(false);
+                        }}
+                        className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg border hover:bg-red-500 hover:text-white text-sm text-red-500 w-full"
+                      >
+                        <LogOut className="w-4 h-4" />
+                        <span>Logout</span>
+                      </button>
+                    </>
+                  ) : (
+                    <Link
+                      to="/login"
+                      onClick={() => setIsMenuOpen(false)}
+                      className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white text-sm w-full"
+                    >
+                      <User className="w-4 h-4" />
+                      <span>Login</span>
+                    </Link>
+                  )}
+                </div>
+              </nav>
+            </div>
+          )}
         </div>
       </header>
 

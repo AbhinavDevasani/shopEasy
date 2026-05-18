@@ -25,10 +25,10 @@ function Hero() {
               </p>
 
               {/* CTA BUTTONS */}
-              <div className="flex gap-4">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/shop"
-                  className="bg-black text-white px-8 py-4 rounded-full font-semibold flex items-center gap-2 hover:bg-neutral-800 transition"
+                  className="bg-black text-white px-8 py-4 rounded-full font-semibold flex items-center justify-center gap-2 hover:bg-neutral-800 transition"
                 >
                   Shop Now
                   <ArrowRight className="w-4 h-4" />
@@ -36,7 +36,7 @@ function Hero() {
 
                 <Link
                   to="/shop"
-                  className="border border-black px-8 py-4 rounded-full font-semibold hover:bg-black hover:text-white transition"
+                  className="border border-black px-8 py-4 rounded-full font-semibold flex justify-center hover:bg-black hover:text-white transition"
                 >
                   Explore Deals
                 </Link>
@@ -65,7 +65,7 @@ function Hero() {
                 <img
   src="https://res.cloudinary.com/dudjdf428/image/upload/v1770615978/ChatGPT_Image_Feb_9_2026_11_14_07_AM_wcmsno.png"
   alt="Featured products"
-  className="w-full h-[75vh] object-contain drop-shadow-2xl"
+  className="w-full h-[50vh] lg:h-[75vh] object-contain drop-shadow-2xl"
 />
                 
               </div>

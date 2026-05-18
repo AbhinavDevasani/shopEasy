@@ -274,7 +274,7 @@ function ProductDetail() {
           <p className="text-gray-600">{product.description}</p>
 
           {/* CART + WISHLIST */}
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-4">
             <button
               onClick={handleCartToggle}
               disabled={cartLoading || isInCart}
