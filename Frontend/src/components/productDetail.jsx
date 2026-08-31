@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Heart, ShoppingCart, Star } from "lucide-react";
 import ImageMagnifier from "./Zoom.jsx";
