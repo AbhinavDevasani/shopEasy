@@ -225,6 +225,7 @@ export default function CheckoutPage() {
         setTimeout(() => navigate("/profile"), 1500);
         return;
       }
+    
 
       const options = {
         key: orderData.keyId,
@@ -342,6 +343,7 @@ export default function CheckoutPage() {
                   />
                 </div>
               ))}
+              
 
               <div className="sm:col-span-2">
                 <label className="text-sm font-medium">Address</label>

@@ -20,6 +20,7 @@ function SampleProducts({ category }) {
   }, [category])
   return (
     <>
+    
       {loading && (
         <div className="flex justify-center my-20">
           <Loader />

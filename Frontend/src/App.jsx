@@ -19,13 +19,14 @@ import CheckoutPage from './components/Checkout.jsx';
 import Loader from './components/Loader.jsx';
 import Profile from './components/Profile.jsx';
 import Orders from './components/Orders.jsx';
+import Chatbot from './components/Chatbot.jsx';
 function App() {
-  // ✅ CART STATE
+  
   const API_URL = import.meta.env.VITE_API_URL;
   const [openCart, setOpenCart] = useState(false);
   const [cartCount, setCartCount] = useState(0);
   const [login, setLogin] = useState(() => Cookies.get("Jwt_token") !== undefined);
-  // ✅ FETCH CART COUNT
+  
   useEffect(() => {
     const fetchCartCount = async () => {
       if (!Cookies.get("Jwt_token")) return;
@@ -78,6 +79,7 @@ function App() {
         <Route path='/orders' element={<Protected><Orders /></Protected>} />
 
       </Routes>
+      <Chatbot/>
     </BrowserRouter>
   )
 }

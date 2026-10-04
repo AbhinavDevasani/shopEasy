@@ -148,6 +148,8 @@ export default function ShopPage() {
             <p className="text-gray-500 mt-2">Discover our complete collection of premium items</p>
           </div>
 
+          
+
           <div className="flex items-center gap-4 w-full sm:w-auto">
             {/* Search Bar */}
             <div className="relative w-full sm:w-64">
