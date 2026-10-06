@@ -1,14 +1,17 @@
 import { useState } from "react";
-import axios from "axios"
-
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { IoChatbubbleOutline } from "react-icons/io5";
 function Chatbot() {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
   const [messages, setMessages] = useState([
     {
       id: 1,
       sender: "bot",
-      text: "Hi! 👋 I'm your shopping assistant. How can I help you today?",
+      text: "Hi! 👋 Welcome to NextBuy. How can I help you today?",
     },
   ]);
 
@@ -42,14 +45,12 @@ function Chatbot() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/chat",
+        `${API_URL}/api/chat`,
         {
           message: message.trim(),
-          history: updatedMessages,
+          history: updatedMessages.map(m => ({ sender: m.sender, text: m.text })),
         }
       );
-
-      console.log("Chatbot response:", response.data);
 
       const botMessage = {
         id: Date.now() + 1,
@@ -91,10 +92,11 @@ function Chatbot() {
   // =========================
 
   const handleViewProduct = (product) => {
-    console.log("View product:", product);
-
-    // We will connect this to your actual
-    // product details route later.
+    const prodId = product.id || product._id;
+    if (prodId) {
+      navigate(`/product/${prodId}`);
+      setIsOpen(false);
+    }
   };
 
   return (
@@ -121,7 +123,7 @@ function Chatbot() {
 
               <div>
                 <h3 className="text-sm font-semibold">
-                  Shop Assistant
+                  NextBuy Assistant
                 </h3>
 
                 <div className="flex items-center gap-1 text-xs text-gray-300">
@@ -186,7 +188,7 @@ function Chatbot() {
                       {message.products.map((product) => (
 
                         <div
-                          key={product.id}
+                          key={product.id || product._id}
                           className="min-w-[190px] overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm"
                         >
 
@@ -216,9 +218,16 @@ function Chatbot() {
 
                             <div className="mt-2 flex items-center justify-between">
 
-                              <span className="text-sm font-bold text-gray-900">
-                                ₹{product.price}
-                              </span>
+                              <div className="flex items-center gap-1.5">
+                                <span className="text-sm font-bold text-gray-900">
+                                  ₹{product.price}
+                                </span>
+                                {product.originalPrice && product.originalPrice > product.price && (
+                                  <span className="text-xs text-gray-400 line-through">
+                                    ₹{product.originalPrice}
+                                  </span>
+                                )}
+                              </div>
 
                               <button
                                 onClick={() =>
@@ -353,7 +362,7 @@ function Chatbot() {
         className="fixed bottom-5 right-5 z-[60] flex h-14 w-14 items-center justify-center rounded-full bg-gray-900 text-2xl text-white shadow-xl transition hover:scale-105 hover:bg-gray-800 max-sm:bottom-4 max-sm:right-4"
         aria-label="Open chatbot"
       >
-        {isOpen ? "×" : "💬"}
+        {isOpen ? "×" : <IoChatbubbleOutline /> }
       </button>
     </>
   );

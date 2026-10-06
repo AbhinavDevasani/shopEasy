@@ -22,18 +22,21 @@ export const searchProducts = async ({
     }
 
     // -----------------------------
-    // PRICE
+    // PRICE (Adjusted for 25% discount)
     // -----------------------------
 
-    if (minPrice !== null || maxPrice !== null) {
+    const parsedMin = minPrice !== null && minPrice !== undefined && minPrice !== "" ? Number(minPrice) : null;
+    const parsedMax = maxPrice !== null && maxPrice !== undefined && maxPrice !== "" ? Number(maxPrice) : null;
+
+    if ((parsedMin !== null && !isNaN(parsedMin)) || (parsedMax !== null && !isNaN(parsedMax))) {
       query.price = {};
 
-      if (minPrice !== null) {
-        query.price.$gte = minPrice;
+      if (parsedMin !== null && !isNaN(parsedMin)) {
+        query.price.$gte = parsedMin / 0.75;
       }
 
-      if (maxPrice !== null) {
-        query.price.$lte = maxPrice;
+      if (parsedMax !== null && !isNaN(parsedMax)) {
+        query.price.$lte = parsedMax / 0.75;
       }
     }
 
